@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice</title>
+</head>
+
+<body>
+    <!-- Question 1 -->
+    <form id="form">
+        <p id="p">Enter a Phone Number</p>
+        <input type="tel" id="pnum" placeholder="###-###-####" required>
+        <input type="submit" id="submit" value="submit">
+    </form>
+
+    <script>
+        const submit = document.getElementById('submit');
+        submit.addEventListener('click', (e) => checkNumber(e));
+        
+        function checkNumber(e) {
+            e.preventDefault();
+
+            const regexp = /^\d{3}\d{3}\d{4}$/;
+            let val = document.getElementById('pnum').value;
+            
+            if (regexp.test(val) == true) {
+                document.getElementById('p').innerText = "Valid Number";
+            } else {
+                document.getElementById('p').innerText = "Invalid Number";
+            }
+
+            document.getElementById('pnum').value = '';
+        }
+    </script>
+
+    <!-- Question 2 -->
+    
+    <form>
+        <input type="range" min="0" max="100" value="50">
+        <meter min="0" max="10" value="5"></meter>
+    </form>
+
+    <!-- Question 3 -->
+    
+    <form oninput="num3.value=parseInt(num1.value)+parseInt(num2.value)">
+        <input type="number" id="num1" value="20">
+        +<input type="number" id="num2" value="20">
+        =<output name="num3" for="num1 num2"></output>
+    </form>
+
+    <!-- Question 4 -->
+    
+    <form>
+        <label for="favoriteFlavor">Choose a Flavor: </label>
+        <input name="favFlavor" id="favoriteFlavor" type="text" list="flavor">
+        <datalist id="flavor">
+            <option value="Chocolate">
+            <option value="Coconut">
+            <option value="Mint">
+            <option value="Strawberry">
+            <option value="Vanilla">
+        </datalist>
+    </form>
+</body>
+
+</html>
